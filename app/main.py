@@ -156,7 +156,11 @@ async def get_appointment(appointment_id: int, db: Session = Depends(get_db)) ->
     return appt
 
 
-@app.patch("/api/v1/appointments/{appointment_id}/reschedule", summary="Reschedule Appointment", response_model=AppointmentResponse)
+@app.patch(
+    "/api/v1/appointments/{appointment_id}/reschedule",
+    summary="Reschedule Appointment",
+    response_model=AppointmentResponse,
+)
 async def reschedule_appointment(
     appointment_id: int,
     data: AppointmentUpdate,
@@ -191,7 +195,11 @@ async def reschedule_appointment(
     return appt
 
 
-@app.patch("/api/v1/appointments/{appointment_id}/cancel", summary="Cancel Appointment", response_model=AppointmentResponse)
+@app.patch(
+    "/api/v1/appointments/{appointment_id}/cancel",
+    summary="Cancel Appointment",
+    response_model=AppointmentResponse,
+)
 async def cancel_appointment(
     appointment_id: int,
     authorization: Optional[str] = Header(None),
@@ -291,7 +299,11 @@ async def get_reservation(reservation_id: int, db: Session = Depends(get_db)) ->
     return res
 
 
-@app.patch("/api/v1/reservations/{reservation_id}/cancel", summary="Cancel Reservation", response_model=ReservationResponse)
+@app.patch(
+    "/api/v1/reservations/{reservation_id}/cancel",
+    summary="Cancel Reservation",
+    response_model=ReservationResponse,
+)
 async def cancel_reservation(
     reservation_id: int,
     authorization: Optional[str] = Header(None),
